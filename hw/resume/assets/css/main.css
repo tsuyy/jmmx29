@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Rufina&display=swap');
+@import url("https://use.typekit.net/pgf5wor.css");
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    line-height: 3.75rem!important;
+}
+
+.logo {
+    width: 90px!important;
+}
+
+.dot {
+    height: 7px;
+    width: 7px;
+    background-color: #2fe0ac;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+.serif {
+    font-family: 'Rufina', serif;
+}
+
+h4 .dot {
+    margin: 1rem;
+    background-color: #2fe0ac!important;
+    width: 8px!important;
+    height: 8px!important;
+  }
+
+.exp ul {
+    padding-left: 1.6rem;
+    margin: 0;
+    list-style-type: circle;
+}
+
+h6 {
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+}
+
+.spacing {
+    font-size: .8rem!important;
+    letter-spacing: 0.08em!important;
+}
+ 
+.mrg-top-btm {
+    margin-top: 12.5rem;
+    margin-bottom: 12.5rem;
+}
+
+.mrg-btm {
+    margin-bottom: 10rem;
+}
+
+.mobile-hr {
+    display: none;
+}
+
+.ul-mrg {
+    margin-left: 1.5em;
+}
+
+.footer {
+    margin-top: 12.5rem;
+    margin-bottom: 4rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #000;
+}
+.footer a:hover {
+    color: #2fe0ac!important;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 515px) {
+
+    .hide {
+        display: none;
+    }
+
+    .shadow-onscroll {
+        background-color: white;
+        transition: all 0.2s linear;
+    }
+
+    .shadow-onscroll.active {
+        box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        width: 65px!important;
+    }
+
+    .nav-link {
+        padding: 0 1.5rem!important;
+    }
+
+    .mobile-br {
+        display: block;
+    }
+
+    .mobile-hr {
+        display: block;
+    }
+
+    h2 {
+        font-size: 1.95rem!important;
+        line-height: 3rem!important;
+    }
+
+    h3 {
+        font-size: 1.24rem!important;
+    }
+
+    h4 {
+        line-height: 2.5rem!important;
+    }
+
+    .footer {
+        margin-top: 12.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer a {
+        color: #2fe0ac!important;
+} 
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+    .navbar-brand {
+        width: 70px;
+    }
+
+    .shadow-onscroll {
+        background-color: white;
+        transition: all 0.2s linear;
+    }
+
+    .shadow-onscroll.active {
+        box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .tablet-br {
+        display: block;
+    }
+
+    .dot {
+        height: 4px;
+        width: 4px;
+      }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+
+}}
