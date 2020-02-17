@@ -1,2 +1,2 @@
 # jmmx29
- class work + assignment
+ class work + assignments
