@@ -25,7 +25,7 @@ var xScale = d3.scaleLinear()
 
 var yScale = d3.scaleBand()
     .range([0, dimensions.boundedHeight])
-    .padding(0.3);
+    .padding(.5);
 
 var rowConverter = function(d) {
     return {
@@ -43,8 +43,8 @@ d3.csv("https://raw.githubusercontent.com/lennymartinez/jmmx29/master/_work/exam
             // update the doamin of the xScale with d3.extent
             //xScale.domain(d3.extent(data, function(d) { return d.votes })); 
             // domain is the value of the data; range is the pixels on the browsers
-            xScale.domain([0, d3.max(data, d => d.votes)]);
-            yScale.domain(data.map(d => d.genre)); // use the map method for categorical data 
+            xScale.domain([0, d3.max(data, d => d.votes) * 1.20]) ;
+            yScale.domain(data.map(d => d.genre)).padding(1); // use the map method for categorical data 
 
             // declaring variables so we can modify them later!
             var xAxis = svg.append("g")
@@ -56,13 +56,14 @@ d3.csv("https://raw.githubusercontent.com/lennymartinez/jmmx29/master/_work/exam
                 .attr("class", "axis_text");
 
             var candy = svg.selectAll("circle") // referecing something that doesn't yet exist
-                .data(data) 
-                .enter() // add the rectangle based on the data
-                .append("circle")
-                .attr("cy", d => yScale(d.genre)) // set y position of the rectangles to each category
-                .attr("cx", d => xScale(d.votes)) // set width of the rect to the scale of x axis
-                .attr("r", 3)
-                .attr("fill", "#96d0ff");
+            .data(data) 
+            .enter() // add the rectangle based on the data
+            .append("circle")
+            .attr("cy", d => yScale(d.genre)) // set y position of the candy to each category
+            .attr("cx", d => xScale(d.votes)) // set x postion to the scale of x ?
+            .attr("r", 5)
+            .attr("fill", "#96d0ff")
+            .attr("stroke", "grey");
 
             var yAxis = svg.append("g")
                 .attr("class", "y axis")
@@ -70,6 +71,18 @@ d3.csv("https://raw.githubusercontent.com/lennymartinez/jmmx29/master/_work/exam
 
             var yAxisText = yAxis.selectAll("text")
                 .attr("class", "axis_text");
+
+            var stick = svg.selectAll("stcik")
+            .data(data)
+            .enter()
+            .append("line")
+            .attr("x1", d => xScale(d.votes) - 5)
+            .attr("x2", d => xScale(0))
+            .attr("y1", d => yScale(d.genre))
+            .attr("y2", d => yScale(d.genre))
+            .attr("stroke", "grey");
+
+
         }
     );
 
