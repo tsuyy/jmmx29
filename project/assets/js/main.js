@@ -1,0 +1,3 @@
+activeSkiers();
+injuryRate();
+legInjury();
