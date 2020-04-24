@@ -134,4 +134,29 @@ figure {
     background-color: #e7f0f3;
 }
 
+.pt {
+    height: 12px;
+    width: 12px;
+    background-color: #2196F3;
+    transform: rotate(45deg);
+    display: inline-block;
+    border: 1.25px solid white;
+}
 
+#buckle {
+    position: absolute;
+    top: 109.8em;
+    right: 38.3em;
+}
+
+#wire {
+    position: absolute;
+    top: 112.9em;
+    right: 36.85em;
+}
+
+#strap {
+    position: absolute;
+    top: 107em;
+    right: 39.85em;
+}
