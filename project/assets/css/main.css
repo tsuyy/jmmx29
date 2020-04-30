@@ -47,7 +47,7 @@ p {
     text-align: center;
     width: 23.5em;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 19px;
     font-family: neuzeit-grotesk, sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -55,15 +55,15 @@ p {
 }
 
 section {
-    margin: 3em 0 3em 0;
+    margin: 3em 0 0em 0;
 }
 
 .title-page {
     margin: 15em 0 15em 0!important;
 }
 
-.intro div {
-    margin-bottom: 10em;
+.mrg-btm {
+    margin-bottom: 6em;
 }
 
 p.caption {
@@ -87,18 +87,22 @@ p.caption {
 
 figure {
     text-align: center;
+    margin: 3em 0 0 0;
 }
 
-.as-pth-tt {
+.as-pth-tt,
+.ir-pth-tt {
     font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 19.5px;
+    transition: all 0.3s ease-in-out;
 }
 
 .msb {
     display: flex;
     justify-content: center;
+    margin: 3em 0 3em 0;
 }
 
 #single {
@@ -152,8 +156,8 @@ figure {
 
 .bg {
     background-color: #e7f0f3;
-    margin: 0 -500%;
-    padding: 0 500% !important;
+    /* margin: 0 -500%;
+    padding: 0 500% !important; */
 }
 
 .pt {
@@ -206,9 +210,9 @@ figure {
 }
 
 #buckle {
-    position: absolute;
-    top: 106.9em;
-    right: 38.3em;
+    position: relative;
+    top: 5.4em;
+    left: 7.1em;
 }
 
 #buckle:hover .tt-text {
@@ -218,9 +222,9 @@ figure {
 
 
 #shell {
-    position: absolute;
-    top: 110.5em;
-    right: 35.85em;
+    position: relative;
+    top: 12em;
+    left: 7.7em;
 }
 
 
@@ -230,9 +234,9 @@ figure {
 }
 
 #strap {
-    position: absolute;
-    top: 101.1em;
-    right: 39.85em;
+    position: relative;
+    top: 3.1em;
+    left: 5.7em;
 }
 
 
@@ -242,9 +246,10 @@ figure {
 }
 
 #liner {
-    position: absolute;
-    top: 123.8em;
-    right: 37.3em;
+    position: relative;
+    left: 12em;
+    top: 2em;
+
 }
 
 #liner:hover .tt-text {
@@ -253,9 +258,9 @@ figure {
 }
 
 #insole {
-    position: absolute;
-    top: 136.1em;
-    right: 36.3em;
+    position: relative;
+    top: 13em;
+    left: 9em;
 }
 
 #insole:hover .tt-text {
@@ -264,9 +269,9 @@ figure {
 }
 
 #toelip {
-    position: absolute;
-    top: 139.1em;
-    right: 27.3em;
+    position: relative;
+    top: 16.8em;
+    left: 20em;
 }
 
 #toelip:hover .tt-text {
@@ -275,9 +280,10 @@ figure {
 }
 
 #binding {
-    position: absolute;
-    top: 136.7em;
-    right: 42.6em;
+    position: relative;
+    top: 14.5em;
+    left: 6.4em;
+
 }
 
 #binding:hover .tt-text {

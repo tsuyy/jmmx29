@@ -13,13 +13,6 @@ function injuryRate() {
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-  // var timeParser = function(d) {
-  //     return {
-  //         date: d3.timeParse("%Y-%m-%d"),
-  //         value: d.value 
-  //     }
-  // };
-
   // loading data in d3v5
   d3.csv("data-injury-rate.csv")
       .then( // promise: don't do anything until we load the data
@@ -27,7 +20,7 @@ function injuryRate() {
       // Now I can use this dataset:
       data => {
       // Add X axis --> it is a date format
-      console.log(data);
+      // console.log(data);
       var x = d3.scaleLinear()
         .domain(d3.extent(data, function(d) { return d.date; }))
         .range([ 0, width ]);
@@ -42,9 +35,31 @@ function injuryRate() {
       svg.append("g")
         .call(d3.axisLeft(y));
 
+          // This allows to find the closest X index of the mouse:
+      var bisect = d3.bisector(function(d) { return d.date; }).left;
+
+      // Create the circle that travels along the curve of chart
+      var focus = svg
+        .append('g')
+        .append('circle')
+          .style("fill", "steelblue")
+          .attr("stroke", "none")
+          .attr('r', 5)
+          .style("opacity", 0)
+
+      // Create the text that travels along the curve of chart
+      var focusText = svg
+        .append('g')
+        .append('text')
+          .style("opacity", 0)
+          .attr("text-anchor", "left")
+          .attr("alignment-baseline", "middle")
+          .attr("class", "ir-pth-tt")
+
       // Add the line
       svg.append("path")
         .datum(data)
+        .attr("class", "ir-pth")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1.5)
@@ -52,6 +67,42 @@ function injuryRate() {
           .x(function(d) { return x(d.date) })
           .y(function(d) { return y(d.value) })
           )
+
+      // Create a rect on top of the svg area: this rectangle recovers mouse position
+      svg
+      .append('rect')
+      .style("fill", "none")
+      .style("pointer-events", "all")
+      .attr('width', width)
+      .attr('height', height)
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+
+    // What happens when the mouse move -> show the annotations at the right positions.
+    function mouseover() {
+      focus.style("opacity", 1)
+      focusText.style("opacity",1)
+    }
+
+    function mousemove() {
+      // recover coordinate we need
+      var x0 = x.invert(d3.mouse(this)[0]);
+      var i = bisect(data, x0, 1);
+      selectedData = data[i]
+      focus
+        .attr("cx", x(selectedData.date))
+        .attr("cy", y(selectedData.value))
+      focusText
+        .html(selectedData.date + " -  " + selectedData.value)
+        .attr("x", x(selectedData.date)+15)
+        .attr("y", y(selectedData.value))
+      }
+    function mouseout() {
+      focus.style("opacity", 0)
+      focusText.style("opacity", 0)
+    }
 
   })
 

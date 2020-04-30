@@ -36,25 +36,25 @@ function activeSkiers() {
 
       
       // This allows to find the closest X index of the mouse:
-      var bisect = d3.bisector(function(d) { return d.x; }).left;
+      var bisect = d3.bisector(function(d) { return d.date; }).left;
 
       // Create the circle that travels along the curve of chart
       var focus = svg
         .append('g')
         .append('circle')
-          .style("fill", "none")
-          .attr("stroke", "black")
-          .attr('r', 4)
-          .style("opacity", 0)
+        .style("fill", "steelblue")
+        .attr("stroke", "none")
+        .attr('r', 5)
+        .style("opacity", 0)
 
       // Create the text that travels along the curve of chart
       var focusText = svg
         .append('g')
         .append('text')
-          .style("opacity", 0)
-          .attr("text-anchor", "left")
-          .attr("alignment-baseline", "middle")
-          .attr("class", "as-pth-tt")
+        .style("opacity", 0)
+        .attr("text-anchor", "left")
+        .attr("alignment-baseline", "middle")
+        .attr("class", "as-pth-tt")
 
       // Add the line
       svg.append("path")
@@ -96,13 +96,15 @@ function activeSkiers() {
         .attr("cx", x(selectedData.date))
         .attr("cy", y(selectedData.value))
       focusText
-        .html("Year:" + selectedData.date + "  ,  " + "Value:" + selectedData.value)
+        .html( selectedData.date + ", " + selectedData.value)
         .attr("x", x(selectedData.date)+15)
         .attr("y", y(selectedData.value))
+        
       }
     function mouseout() {
       focus.style("opacity", 0)
       focusText.style("opacity", 0)
+      
     }
 
 
