@@ -2,6 +2,7 @@ activeSkiers();
 injuryRate();
 legInjury();
 
+
 // Get all the paths
 var pathStrings = Array.from( document.querySelectorAll( ".boots" ) )
 	.map( path => path.getAttribute( "d" ) );

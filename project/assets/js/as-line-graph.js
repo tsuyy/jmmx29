@@ -13,13 +13,6 @@ function activeSkiers() {
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-  // var timeParser = function(d) {
-  //     return {
-  //         date: d3.timeParse("%Y-%m-%d"),
-  //         value: d.value 
-  //     }
-  // };
-
   // loading data in d3v5
   d3.csv("data-active-skiers.csv")
       .then( // promise: don't do anything until we load the data
@@ -42,42 +35,31 @@ function activeSkiers() {
         .call(d3.axisLeft(y));
 
       
-      // create a tooltip
-      var Tooltip = d3.select("#div_template")
-      .append("div")
-      .style("opacity", 0)
-      .attr("class", "tooltip")
-      .style("background-color", "white")
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .style("padding", "5px")
+      // This allows to find the closest X index of the mouse:
+      var bisect = d3.bisector(function(d) { return d.x; }).left;
 
-      // Three function that change the tooltip when user hover / move / leave a cell
-      var mouseover = function(d) {
-        Tooltip
-          .style("opacity", 1)
-        d3.select(this)
-          .style("stroke", "black")
-          .style("opacity", 1)
-      }
-      var mousemove = function(d) {
-        Tooltip
-          .html("The exact value of<br>this cell is: " + d.value)
-          .style("left", (d3.mouse(this)[0]+70) + "px")
-          .style("top", (d3.mouse(this)[1]) + "px")
-      }
-      var mouseleave = function(d) {
-        Tooltip
+      // Create the circle that travels along the curve of chart
+      var focus = svg
+        .append('g')
+        .append('circle')
+          .style("fill", "none")
+          .attr("stroke", "black")
+          .attr('r', 4)
           .style("opacity", 0)
-        d3.select(this)
-          .style("stroke", "none")
-          .style("opacity", 0.8)
-      }
+
+      // Create the text that travels along the curve of chart
+      var focusText = svg
+        .append('g')
+        .append('text')
+          .style("opacity", 0)
+          .attr("text-anchor", "left")
+          .attr("alignment-baseline", "middle")
+          .attr("class", "as-pth-tt")
 
       // Add the line
       svg.append("path")
         .datum(data)
+        .attr("class", "as-pth")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1.5)
@@ -86,8 +68,45 @@ function activeSkiers() {
           .y(function(d) { return y(d.value) })
           )
 
+
+      // Create a rect on top of the svg area: this rectangle recovers mouse position
+      svg
+      .append('rect')
+      .style("fill", "none")
+      .style("pointer-events", "all")
+      .attr('width', width)
+      .attr('height', height)
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+
+    // What happens when the mouse move -> show the annotations at the right positions.
+    function mouseover() {
+      focus.style("opacity", 1)
+      focusText.style("opacity",1)
+    }
+
+    function mousemove() {
+      // recover coordinate we need
+      var x0 = x.invert(d3.mouse(this)[0]);
+      var i = bisect(data, x0, 1);
+      selectedData = data[i]
+      focus
+        .attr("cx", x(selectedData.date))
+        .attr("cy", y(selectedData.value))
+      focusText
+        .html("Year:" + selectedData.date + "  ,  " + "Value:" + selectedData.value)
+        .attr("x", x(selectedData.date)+15)
+        .attr("y", y(selectedData.value))
+      }
+    function mouseout() {
+      focus.style("opacity", 0)
+      focusText.style("opacity", 0)
+    }
+
+
   })
 
       // line svg attr and give it two values (start, end)
 };
-

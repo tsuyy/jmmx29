@@ -58,6 +58,18 @@ section {
     margin: 3em 0 3em 0;
 }
 
+.title-page {
+    margin: 15em 0 15em 0!important;
+}
+
+.intro div {
+    margin-bottom: 10em;
+}
+
+p.caption {
+    font-weight: 500;
+}
+
 .pagination {
     text-align: center;
     margin-bottom: 5em;
@@ -70,10 +82,18 @@ section {
     transform:rotate(45deg);
     display: inline-block;
     margin-right: .7em;
+    cursor: pointer;
 }
 
 figure {
     text-align: center;
+}
+
+.as-pth-tt {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
 }
 
 .msb {
@@ -132,31 +152,135 @@ figure {
 
 .bg {
     background-color: #e7f0f3;
+    margin: 0 -500%;
+    padding: 0 500% !important;
 }
 
 .pt {
     height: 12px;
     width: 12px;
-    background-color: #2196F3;
+    background-color: orange;
     transform: rotate(45deg);
     display: inline-block;
     border: 1.25px solid white;
+    
+}
+
+.pt:hover {
+    background-color: #2196F3;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05) rotate(45deg);
+}
+
+.tooltip {
+    display: inline-block;
+}
+
+.tooltip .tt-text {
+    visibility: hidden;
+    width: 12em;
+    background-color: #ffffffe0;
+    color: #000;
+    text-align: left;
+    padding: 14px;
+    border-radius: 15px;
+    transform: rotate(-45deg)!important;
+    position: absolute;
+    z-index: 1;
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    top: 100%;
+    left: 50%;
+    margin-left: -40px;
+    transition: opacity 0.5s;
+    opacity: 0;
+    line-height: 23px;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tt-text b {
+    color:#2196F3;
 }
 
 #buckle {
     position: absolute;
-    top: 109.8em;
+    top: 106.9em;
     right: 38.3em;
 }
 
-#wire {
+#buckle:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+#shell {
     position: absolute;
-    top: 112.9em;
-    right: 36.85em;
+    top: 110.5em;
+    right: 35.85em;
+}
+
+
+#shell:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 #strap {
     position: absolute;
-    top: 107em;
+    top: 101.1em;
     right: 39.85em;
+}
+
+
+#strap:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#liner {
+    position: absolute;
+    top: 123.8em;
+    right: 37.3em;
+}
+
+#liner:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#insole {
+    position: absolute;
+    top: 136.1em;
+    right: 36.3em;
+}
+
+#insole:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#toelip {
+    position: absolute;
+    top: 139.1em;
+    right: 27.3em;
+}
+
+#toelip:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#binding {
+    position: absolute;
+    top: 136.7em;
+    right: 42.6em;
+}
+
+#binding:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
 }

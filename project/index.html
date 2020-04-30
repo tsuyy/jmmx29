@@ -11,10 +11,10 @@
 
 <body>
     <div class="container">
-        <section>
-            <h1 id="align-right">Evolution of<span>Ski Boots</Evolution></h1>
+        <section class="title-page">
+            <h1 id="align-right">Evolution of<span>Ski Boots</span></h1>
         </section>
-        <section>
+        <section class="intro">
             <div>
                 <p>
                     Over nearly 200 years, ski boot technology has improved drastically, from its materials, 
@@ -27,11 +27,13 @@
                 <h2>Active skiers</h2>
                 <p>
                     Skiing -- originally invented as a transportation, rose to its popularity after downhill military races and practices 
-                    became widely adopted as a sport. In the 1930s, there were about 1 million active skiers in the US. 
-                    Along with the rapid expansion ski resorts and chairlifts, skiing has reached its peak with 14 million of active skiers
+                    became widely adopted as a sport. In 1930s, there were about 1 million active skiers in the United States. 
+                    Along with the rapid expansion of ski resorts and chairlifts, skiing has reached its peak with 14 million of active skiers
                     in the 70s. Today, it is about 7 million annually. 
                 </p>
-                <figure id="as-chart"></figure>
+                <figure id="as-chart">
+                    <p class="caption">Active US Skiers in Millions</p>
+                </figure>
             </div>
         </section>
        <section class="bg">
@@ -113,9 +115,17 @@
        <section >
            <h2>Modern Ski Boot</h2>
            <div class="msb">
-               <span class="pt" id="buckle"></span>
-               <span class="pt" id="wire"></span>
-               <span class="pt" id="strap"></span>
+               <!-- <div class="tooltip">
+                   <span class="pt" id="buckle">
+                       <span class="tt-text"><b>Buckle</b><br/>The latch that holds the boot tightly closed</span>
+                   </span>
+                   <span class="pt" id="shell">
+                       <span class="tt-text"><b>Shell</b><br/>Made of polymer plastics, often Polyurethane or Polyether</span>
+                   </span>
+                   <span class="pt" id="strap">
+                       <span class="tt-text"><b>Strap</b><br/>Provides power transmission when flexing the boot</span>
+                   </span>
+               </div> -->
                <img id="single" src="assets/images/modern-ski-boot.png" />
            </div>
            <p>
@@ -123,14 +133,30 @@
                to transfer skier’s movements into the skis, while supporting and protecting the feet, ankles, and lower legs.
            </p>
            <div class="msb">
+               <!-- <div class="tooltip">
+                    <span class="pt" id="liner">
+                        <span class="tt-text"><b>Liner</b><br/>Provides thermal insulation, cushioning and comfort</span>
+                    </span>
+                    <span class="pt" id="binding">
+                        <span class="tt-text"><b>Binding</b><br/>Designed to let the toe and heel of the boot move within to an extent before releasing the boot. This provides shock absorbtion and stops the skis from being released inadvertently as often.</span>
+                    </span>
+                    <span class="pt" id="insole">
+                        <span class="tt-text"><b>Insole</b><br/>The platform that supports the foot</span>
+                    </span>
+                    <span class="pt" id="toelip">
+                        <span class="tt-text"><b>Toelip</b><br/>Locks the boot to the binding</span>
+                    </span>
+                </div> -->
                <img id="x-section" src="assets/images/msb-cross-section.png" />
            </div>
        </section>
        <section>
            <div>
                <h2>Ski injury rate</h2>
-               <p>1950 - 7.6 / 1000 skier days </p>
-               <figure id="ir-chart"></figure>
+               <p>In the 50s, the injury rate was estimated to be as high as 7.6 to 10.9 per 1,000 skier days </p>
+               <figure id="ir-chart">
+                   <p class="title">Injuries / 1,000 Skier Days</p>
+               </figure>
            </div>
            <div>
                <h2>Better boot binding &<br/>designs emerged from<br/>persistent leg injuries</h2>
@@ -140,7 +166,9 @@
                     the amount of knee injuries suffered each year has actually increased. This is mainly because the bindings were designed 
                     only to reduce lower leg fractures and no other injuries were addressed.
                </p>
-               <figure id="li-chart"></figure>
+               <figure id="li-chart">
+                   <p class="title">Frequency of Leg Injuries in %</p>
+               </figure>
            </div>
        </section>
        <section>
@@ -154,6 +182,10 @@
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/flubber@0.3.0"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+            crossorigin="anonymous">
+    </script>
     <script src="assets/js/as-line-graph.js"></script>
     <script src="assets/js/ir-line-graph.js"></script>
     <script src="assets/js/li-line-graph.js"></script>

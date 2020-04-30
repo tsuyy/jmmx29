@@ -15,7 +15,7 @@ function legInjury() {
 
 
    //Read the data
-    d3.csv("data-leg-injury.csv", function(data) {
+   d3.csv("data-leg-injury.csv").then(function(data) {
     // group the data: I want to draw one line per group
     var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
         .key(function(d) { return d.name;})
@@ -27,7 +27,7 @@ function legInjury() {
         .range([ 0, width ]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).ticks(5));
+        .call(d3.axisBottom(x).tickFormat(d3.format("d")));
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -53,8 +53,8 @@ function legInjury() {
             .attr("d", function(d){
             return d3.line()
                 .x(function(d) { return x(d.date); })
-                .y(function(d) { return y(+d.name); })
-                (d.value)
+                .y(function(d) { return y(+d.value); })
+                (d.values)
             })
 
     })
