@@ -25,14 +25,16 @@ function activeSkiers() {
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+        .call(d3.axisBottom(x).tickFormat(d3.format("d")))
+        .attr('class', 'xAxis');
 
       // Add Y axis
       var y = d3.scaleLinear()
         .domain([6, d3.max(data, function(d) { return +d.value; })])
         .range([ height, 0 ]);
       svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .attr('class', 'yAxis');
 
       
       // This allows to find the closest X index of the mouse:
@@ -55,6 +57,7 @@ function activeSkiers() {
         .attr("text-anchor", "left")
         .attr("alignment-baseline", "middle")
         .attr("class", "as-pth-tt")
+        .style("background", "#ffffffe0")
 
       // Add the line
       svg.append("path")
@@ -62,7 +65,7 @@ function activeSkiers() {
         .attr("class", "as-pth")
         .attr("fill", "none")
         .attr("stroke", '#2196F3')
-        .attr("stroke-width", 1.75)
+        .attr("stroke-width", 2.5)
         .attr("d", d3.line()
           .x(function(d) { return x(d.date) })
           .y(function(d) { return y(d.value) })
@@ -96,7 +99,7 @@ function activeSkiers() {
         .attr("cx", x(selectedData.date))
         .attr("cy", y(selectedData.value))
       focusText
-        .html( selectedData.date + ", " + selectedData.value)
+        .html( selectedData.date + " - " + selectedData.value)
         .attr("x", x(selectedData.date)+15)
         .attr("y", y(selectedData.value))
         

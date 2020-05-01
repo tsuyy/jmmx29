@@ -26,14 +26,16 @@ function injuryRate() {
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+        .call(d3.axisBottom(x).tickFormat(d3.format("d")))
+        .attr('class', 'xAxis');;
 
       // Add Y axis
       var y = d3.scaleLinear()
         .domain([2.5, d3.max(data, function(d) { return +d.value; })])
         .range([ height, 0 ]);
       svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .attr('class', 'yAxis');;
 
           // This allows to find the closest X index of the mouse:
       var bisect = d3.bisector(function(d) { return d.date; }).left;
@@ -62,7 +64,7 @@ function injuryRate() {
         .attr("class", "ir-pth")
         .attr("fill", "none")
         .attr("stroke", "#2196F3")
-        .attr("stroke-width", 1.75)
+        .attr("stroke-width", 2.5)
         .attr("d", d3.line()
           .x(function(d) { return x(d.date) })
           .y(function(d) { return y(d.value) })

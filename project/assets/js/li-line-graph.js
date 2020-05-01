@@ -40,7 +40,7 @@ function legInjury() {
     var res = sumstat.map(function(d){ return d.key }) // list of group names
     var color = d3.scaleOrdinal()
         .domain(res)
-        .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+        .range(['#2F5CAA','#54CAF5','#87ADC5','#2196F3'])
 
     // Draw the line
     svg.selectAll(".line")
@@ -49,7 +49,7 @@ function legInjury() {
         .append("path")
             .attr("fill", "none")
             .attr("stroke", function(d){ return color(d.key) })
-            .attr("stroke-width", 1.5)
+            .attr("stroke-width", 2.5)
             .attr("d", function(d){
             return d3.line()
                 .x(function(d) { return x(d.date); })

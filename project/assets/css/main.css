@@ -69,6 +69,7 @@ section {
 
 p.caption {
     font-weight: 500;
+    margin-bottom: 2em;
 }
 
 .pagination {
@@ -107,6 +108,10 @@ figure {
     font-style: normal;
     font-size: 19.5px;
     transition: all 0.3s ease-in-out;
+}
+
+.yAxis, .xAxis {
+    display: none;
 }
 
 .msb {
@@ -375,4 +380,9 @@ figure {
     visibility: visible;
     opacity: 1;
     width: 12em!important;
+}
+
+span.highlight {
+    font-weight: 500;
+    color: #2196F3;
 }
