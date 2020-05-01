@@ -15,6 +15,7 @@ body {
 	color: #3b3b3b;
     font-size: 24px;
     margin-bottom: 5em;
+    overflow-x: hidden;
 }
 
 .container {
@@ -85,6 +86,16 @@ p.caption {
     cursor: pointer;
 }
 
+.dot.active {
+    background-color: #2196F3;
+}
+
+.dot:hover {
+    background-color: #2196F3;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.05) rotate(45deg);
+}
+
 figure {
     text-align: center;
     margin: 3em 0 0 0;
@@ -92,8 +103,7 @@ figure {
 
 .as-pth-tt,
 .ir-pth-tt {
-    font-family: neuzeit-grotesk, sans-serif;
-    font-weight: 400;
+    font-family: ivymode, sans-serif;
     font-style: normal;
     font-size: 19.5px;
     transition: all 0.3s ease-in-out;
@@ -105,6 +115,37 @@ figure {
     margin: 3em 0 3em 0;
 }
 
+.vh-wrapper {
+    display: flex;
+}
+
+.img-wrap {
+    height: 20em;
+    position: absolute;
+}
+
+.vh-caption {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    right: 16em;
+}
+
+#vh-yr {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: left;
+    font-family: ivymode, sans-serif;
+    display: block;
+    margin-bottom: 1em;
+
+}
+
+.vh-caption p {
+    width: 9em;
+    text-align: left;
+}
+
 #single {
     width: 17em;
 }
@@ -113,51 +154,79 @@ figure {
     width: 25em;
 }
 
-#outline_1840 {
-    position: absolute;
+.show {
+    display: block!important;
+    opacity: 1;
+}
+
+.hide {
+    display: none;
     opacity: 0;
-    z-index: 100;
-    left: 700px;
-    top: 2101px;
+}
+
+#outline_1840 {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
     transform: scale(1.1);
+    left: 28.2em;
+    top: 0.4em;
+    display: block;
+    transition: opacity .75s ease-in-out;
+}
+
+#outline_1928 {
+    position: relative;
+    opacity: 0;
+    z-index: 1;
+    left: 28em;
+    bottom: 16.5em;
+    display: none;
+    transition: scale .75s ease-in-out;
+
+}
+
+.scale-down {
+    transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+
 }
 
 #outline_1940 {
-    position: absolute;
+    position: relative;
     opacity: 0;
-    z-index: 100;
-    left: 709px;
-    top: 2099px;
-    transform: scale(1.1);
+    z-index: 1;
+    left: 28em;
+    bottom: 16.7em;
+    display: none;
 }
 
 #outline_1962 {
-    position: absolute;
+    position: relative;
     opacity: 0;
-    z-index: 100;
-    left: 703px;
-    top: 2097px;
-    transform: scale(1.06);
+    z-index: 1;
+    left: 28em;
+    bottom: 17em;
+    display: none;
 }
 
 #outline_1971 {
-    position: absolute;
+    position: relative;
     opacity: 0;
-    z-index: 100;
-    left: 709px;
-    top: 2097px;
-    transform: scale(1.12);
+    z-index: 1;
+    left: 28em;
+    bottom: 16.7em;
+    display: none;
 }
 
 .boots {
     fill: #fff;
-    display: none;
 }
 
 .bg {
     background-color: #e7f0f3;
-    /* margin: 0 -500%;
-    padding: 0 500% !important; */
+    width: 100vw;
 }
 
 .pt {
@@ -183,7 +252,7 @@ figure {
 
 .tooltip .tt-text {
     visibility: hidden;
-    width: 12em;
+    width: 11em;
     background-color: #ffffffe0;
     color: #000;
     text-align: left;
@@ -207,6 +276,7 @@ figure {
 
 .tt-text b {
     color:#2196F3;
+    line-height: 30px;
 }
 
 #buckle {
@@ -231,6 +301,7 @@ figure {
 #shell:hover .tt-text {
     visibility: visible;
     opacity: 1;
+    width: 10em!important;
 }
 
 #strap {
@@ -249,7 +320,6 @@ figure {
     position: relative;
     left: 12em;
     top: 2em;
-
 }
 
 #liner:hover .tt-text {
@@ -266,6 +336,7 @@ figure {
 #insole:hover .tt-text {
     visibility: visible;
     opacity: 1;
+    width: 9em!important;
 }
 
 #toelip {
@@ -277,16 +348,31 @@ figure {
 #toelip:hover .tt-text {
     visibility: visible;
     opacity: 1;
+    width: 9em!important;
 }
 
-#binding {
+#binding_b {
     position: relative;
     top: 14.5em;
-    left: 6.4em;
+    left: 7.2em;
 
 }
 
-#binding:hover .tt-text {
+#binding_b:hover .tt-text {
     visibility: visible;
     opacity: 1;
+    width: 12em!important;
+}
+
+#binding_f {
+    position: relative;
+    top: 16.8em;
+    left: 21.3em;
+
+}
+
+#binding_f:hover .tt-text {
+    visibility: visible;
+    opacity: 1;
+    width: 12em!important;
 }
