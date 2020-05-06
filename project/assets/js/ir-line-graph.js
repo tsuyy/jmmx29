@@ -1,7 +1,7 @@
 function injuryRate() {
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 460 - margin.left - margin.right,
+  var margin = {top: 10, right: 100, bottom: 30, left: 100},
+      width = 800 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -26,7 +26,11 @@ function injuryRate() {
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(d3.format("d")))
+        .call(d3.axisBottom(x)
+          .tickFormat(d3.format("d"))
+          .tickPadding([11]) // moves axis labels away from ticks and lines
+          .tickSize(-height, 0, 0))
+        .style("stroke-dasharray", "2 2")
         .attr('class', 'xAxis');;
 
       // Add Y axis
@@ -75,6 +79,8 @@ function injuryRate() {
       .append('rect')
       .style("fill", "none")
       .style("pointer-events", "all")
+      .style('stroke', '#a7a6a6')
+      .style("stroke-dasharray", "2 2")
       .attr('width', width)
       .attr('height', height)
       .on('mouseover', mouseover)
@@ -97,7 +103,7 @@ function injuryRate() {
         .attr("cx", x(selectedData.date))
         .attr("cy", y(selectedData.value))
       focusText
-        .html(selectedData.date + " -  " + selectedData.value)
+        .html(selectedData.value)
         .attr("x", x(selectedData.date)+15)
         .attr("y", y(selectedData.value))
       }

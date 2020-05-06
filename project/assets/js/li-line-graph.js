@@ -1,7 +1,7 @@
 function legInjury() {
   // set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 60},
-      width = 460 - margin.left - margin.right,
+  var margin = {top: 10, right: 100, bottom: 30, left: 100},
+      width = 800 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -12,6 +12,40 @@ function legInjury() {
     .append("g")
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
+
+    // labels 
+
+    var ankle_spr = svg.append("text")
+    .attr("class", "li-label")
+    .text("Ankle Sprain")
+    .attr("y", 24)
+    .attr("x", "10")
+    .style("fill", "rgb(47, 92, 170)")
+    .attr('transform', 'rotate(11)');
+
+    var ankle_fx = svg.append("text")
+    .attr("class", "li-label")
+    .text("Ankle Fracture")
+    .attr("y", 276)
+    .attr("x", "5")
+    .style("fill", "#53caf5");
+    
+    var tibia_fx = svg.append("text")
+    .attr("class", "li-label")
+    .text("Tibia Fracture")
+    .attr("y", 190)
+    .attr("x", "18")
+    .style("fill", "#2396f3")
+    .attr('transform', 'rotate(4)');
+
+    var knee_spr = svg.append("text")
+    .attr("class", "li-label")
+    .text("Knee Sprain")
+    .attr("y", 140)
+    .attr("x", "-11")
+    .style("fill", "#86adc5")
+    .attr('transform', 'rotate(-7)');
+          
 
 
    //Read the data
@@ -27,14 +61,22 @@ function legInjury() {
         .range([ 0, width ]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+        .call(d3.axisBottom(x)
+            .tickFormat(d3.format("d"))
+            .tickPadding([11]) // moves axis labels away from ticks and lines
+            .tickSize(-height, 0, 0))
+        .style("stroke-dasharray", "2 2");
 
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) { return +d.value; })])
         .range([ height, 0 ]);
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y)
+            .tickFormat(d3.format("d"))
+            .tickPadding([11])
+            .tickSize(-width, 0, 0))
+            .style("stroke-dasharray", "2 2");
 
     // color palette
     var res = sumstat.map(function(d){ return d.key }) // list of group names

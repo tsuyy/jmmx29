@@ -27,14 +27,14 @@ h1 span {
     font-family: ivymode, sans-serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 95px;
+    font-size: 105px;
     display: block;
 }
 
 #align-right {
     text-align: right!important;
     margin: 0 auto;
-    width: 12em;
+    width: 13em;
 }
 
 h1, h2 {
@@ -46,7 +46,7 @@ h1, h2 {
 
 p {
     text-align: center;
-    width: 23.5em;
+    width: 32.5em;
     margin: 0 auto;
     font-size: 19px;
     font-family: neuzeit-grotesk, sans-serif;
@@ -108,10 +108,26 @@ figure {
     font-style: normal;
     font-size: 19.5px;
     transition: all 0.3s ease-in-out;
+    
 }
 
-.yAxis, .xAxis {
+.yAxis {
     display: none;
+}
+
+.tick line {
+    opacity: 0.3;
+}
+
+.tick {
+    font-size: 11px;
+}
+
+.li-label {
+    font-family: neuzeit-grotesk, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
 }
 
 .msb {
@@ -386,3 +402,34 @@ span.highlight {
     font-weight: 500;
     color: #2196F3;
 }
+
+
+/* (320x480) Smartphone, Portrait */
+@media only screen and (device-width: 320px) and (orientation: portrait) {
+    /* insert styles here */
+}
+
+/* (1280x1024) SXGA Display */
+@media  screen and (max-width: 1280px) {
+    /* insert styles here */
+
+    .svg {
+        transform: translate(16em) scale(.7);
+    }
+
+    .vh-caption {
+        right: 14em;
+    }
+
+    #outline_1840 {
+        left: 16.2em;
+    }
+
+    #outline_1928,
+    #outline_1940,
+    #outline_1962,
+    #outline_1971 {
+        left: 16em;
+    }
+}
+ 
