@@ -62,7 +62,7 @@ async function drawLineChart() {
         .attr("stroke", "#af9358")
         .attr("stroke-width", 2);
 
-    // drawing peripherals
+    // drawing axes
     const yAxisGenerator = d3.axisLeft()
         .scale(yScale);
 
