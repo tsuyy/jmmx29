@@ -1,4 +1,4 @@
-async function drawLineChart() {
+async function plotScatterChart() {
     const dataset = await d3.json("my_weather_data.json");
 
     // setting up data pt accessors
@@ -104,4 +104,4 @@ async function drawLineChart() {
   
 }
 
-drawLineChart();
+plotScatterChart();
